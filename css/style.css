@@ -1,0 +1,44 @@
+@charset "UTF-8";
+/* 日本語コメント */
+body {
+  font-size: 13px;
+}
+
+h1 {
+  font-size: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.display_list {
+  padding: 0;
+  display: flex;
+}
+
+.display_list li {
+  font-size: 14px;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.display_list li:first-child {
+  background: skyblue;
+}
+
+.display_list li:last-child {
+  background: orange;
+}
+
+th, td {
+  padding: 5px;
+  text-align: center;
+}
+
+.fade-transition {
+  transition: opacity .3s ease;
+}
+
+.fade-enter, .fade-leave {
+  opacity: 0;
+}
