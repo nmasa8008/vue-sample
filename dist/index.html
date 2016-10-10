@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue.js sample</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/4.1.0/sanitize.min.css" media="screen">
+    <link rel="stylesheet" href="css/style.css" media="screen" charset="utf-8">
+  </head>
+  <body>
+    <div id="content">
+      <h1>vue.js json sample</h1>
+
+      <nav>
+        <ul class="display_list">
+          <li v-on:click="toggleDisplay('view-batter')">打者データ</li>
+          <li v-on:click="toggleDisplay('view-pitcher')">投手データ</li>
+        </ul>
+      </nav>
+
+      <component :is="currentView" :pitcher="pitcher" :batter="batter" transition="fade" transition-mode="out-in" ></component>
+
+      <script type="text/x-template" id="batter-template">
+        <table border="1" cellspacing="0">
+          <tbody>
+            <tr>
+              <th>背番号</th>
+              <th>名前</th>
+              <th>打率</th>
+              <th>試合数</th>
+              <th>打席数</th>
+              <th>打席</th>
+              <th>安打</th>
+              <th>二塁打</th>
+              <th>三塁打</th>
+              <th>本塁打</th>
+            </tr>
+            <tr v-for="item in batter">
+              <td v-text="item.un"></td>
+              <td v-text="item.name"></td>
+              <td v-text="item.avg"></td>
+              <td v-text="item.gm"></td>
+              <td v-text="item.pa"></td>
+              <td v-text="item.ab"></td>
+              <td v-text="item.h"></td>
+              <td v-text="item.h2"></td>
+              <td v-text="item.h3"></td>
+              <td v-text="item.hr"></td>
+            </tr>
+          </tbody>
+        </table>
+      </script>
+      <!-- <view-batter :batter="batter" :is="currentView" transition="fade" transition-mode="out-in"></view-batter> -->
+
+      <script type="text/x-template" id="pitcher-template">
+        <table border="1" cellspacing="0">
+          <tbody>
+            <tr>
+              <th>背番号</th>
+              <th>名前</th>
+              <th>防御率</th>
+              <th>試合数</th>
+              <th>完投</th>
+              <th>無点勝</th>
+              <th>無四球</th>
+              <th>勝利</th>
+              <th>敗戦</th>
+              <th>ホールド</th>
+              <th>HP</th>
+              <th>セーブ</th>
+            </tr>
+            <tr v-for="item in pitcher">
+              <td v-text="item.un"></td>
+              <td v-text="item.name"></td>
+              <td v-text="item.era"></td>
+              <td v-text="item.gm"></td>
+              <td v-text="item.cg"></td>
+              <td v-text="item.sho"></td>
+              <td v-text="item.sho1"></td>
+              <td v-text="item.w"></td>
+              <td v-text="item.l"></td>
+              <td v-text="item.hld"></td>
+              <td v-text="item.hp"></td>
+              <td v-text="item.sv"></td>
+            </tr>
+          </tbody>
+        </table>
+      </script>
+      <!-- <view-pitcher :pitcher="pitcher"  :is="currentView" transition="fade" transition-mode="out-in"></view-pitcher> -->
+
+    </div>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
