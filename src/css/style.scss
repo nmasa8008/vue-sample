@@ -2,5 +2,38 @@
 /* 日本語コメント */
 
 body {
-  color: orange;
+  font-size: 13px;
+}
+h1 {
+  font-size: 15px;
+  border-bottom: 1px solid #ccc;
+}
+.display_list {
+  padding: 0;
+  display: flex;
+  li {
+    font-size: 14px;
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    &:first-child {
+      background: skyblue;
+    }
+    &:last-child {
+      background: orange;
+    }
+  }
+}
+th,td {
+  padding: 5px;
+  text-align: center;
+}
+
+
+.fade-transition {
+  transition: opacity .3s ease;
+}
+.fade-enter, .fade-leave {
+  opacity: 0;
 }
